@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<string.h>
+int matchnreplace(char *str,char *pat,char *rep)
+{
+    char ans[100];
+    int i=0,j=0,k=0,c=0,m=0,flag=0;
+    while(str[c]!='\0')
+    {
+        if(str[m]==pat[i])
+        {
+            m++;
+            i++;
+            if(pat[i]=='\0')
+            {
+                flag=1;
+                for(k=0;rep[k]!='\0';k++,j++)
+                    ans[j]=rep[k];
+                i=0;c=m;
+            }
+        }
+        else
+        {
+            ans[j]=str[c];
+            j++;c++;i=0;m=c;
+        }
+    }
+    ans[j]='\0';
+    strcpy(str,ans);
+    return flag;
+}
+int main()
+{
+   char str[100],pat[20],rep[20];
+   int flag=0;
+   printf("enter the string\n");
+   gets(str);
+   printf("enter the pattern\n");
+   gets(pat);
+   printf("enter the replacing string\n");
+   gets(rep);
+   flag=matchnreplace(str,pat,rep);
+   if(flag==1)
+        printf("new string is:%s",str);
+   else
+        printf("string not found");
+}
