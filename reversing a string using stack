@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<string.h>
+#include<conio.h>
+#define MAX 10
+int top=-1;
+char z[MAX];
+
+int main()
+{
+   char a[10];
+   int i;
+
+   printf("Enter the string ");
+    for(i=0;i<10;i++)
+      scanf("%c",&a[i]);
+    int len=strlen(a);
+   for(i=0;i<len;i++)
+   {
+
+       push(a[i]);
+   }
+   for(i=0;i<len;i++)
+   {
+       pop();
+   }
+
+}
+void push(char x)
+{
+    if(top==MAX-1)
+      {
+
+        printf("Stack Overflow");
+        return;
+      }
+    z[++top]=x;
+
+}
+void pop()
+{
+    if(top==-1)
+       {
+         printf("Undrflow");
+        return;
+       }
+     //  int y=z[top];
+
+    printf("%c",z[top--]);
+
+}
