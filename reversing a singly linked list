@@ -51,11 +51,11 @@ void print(struct node* head)
 
 int main()
 {
-    head=insert(head,9);print(head);printf("\n");
-    head=insert(head,8);print(head);printf("\n");
-    head=insert(head,6);print(head);printf("\n");
-    head=insert(head,3);print(head);printf("\n");
-    head=insert(head,4);print(head);printf("\n");
+    head=insert(head,9);
+    head=insert(head,8);
+    head=insert(head,6);
+    head=insert(head,3);
+    head=insert(head,4);
     print(head);printf("\n");
     head=reverse(head);
     print(head);printf("\n");
