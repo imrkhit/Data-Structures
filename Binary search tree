@@ -107,29 +107,29 @@ int max(int x,int y)
 bool IsLesser(struct node* root,int value)
 {
     if(root==NULL)
-        return 0;
+        return false;
     if((root->data<=value)&&IsLesser(root->left,value)&IsLesser(root->right,value))
-       return 1;
+       return true;
     else
-        return 0;
+        return false;
 }
 bool IsGreater(struct node* root,int value)
 {
     if(root==NULL)
-        return 0;
+        return false;
     if((root->data>value)&&IsGreater(root->left,value)&IsGreater(root->right,value))
-       return 1;
+       return true;
     else
-        return 0;
+        return false;
 }
 bool IsBinaryTree(struct node* root)
 {
     if(root==NULL)
-        return 0;
+        return false;
     if(IsLesser(root->left,root->data)&&IsGreater(root->right,root->data)&&IsBinaryTree(root->left)&&IsBinaryTree(root->right))
-        return 1;
+        return true;
     else
-        return 0;
+        return false;
 }
 int main()
 {
