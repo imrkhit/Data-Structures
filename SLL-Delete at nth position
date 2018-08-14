@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct node* insert(struct node* head,int x);
+void Print();
+void Delete(int pos);
+struct node
+{
+    int data;
+    struct node* next;
+};
+struct node* head=NULL;
+int main()
+{
+    int i, n, num, pos;
+    printf("Enter the total number\n");
+    scanf("%d",&n);
+    printf("Enter the number\n");
+    for(i=0;i<=n-1;i++)
+    {
+
+        scanf("%d",&num);
+        head=insert(head,num);
+
+    }
+    Print();
+    printf("Enter the pos of the number to be deleted\n");
+    scanf("%d",&pos);
+    Delete(pos);
+    Print();
+}
+
+struct node* insert(struct node* head,int x)
+{
+    struct node* temp=(struct node*)malloc(sizeof(struct node*));
+    temp->data=x;
+    temp->next=NULL;
+    if(head==NULL)
+        head=temp;
+    else
+    {
+        struct node* temp1=head;
+        while(temp1->next!=NULL)
+        {
+            temp1=temp1->next;
+        }
+        temp1->next=temp;
+    }
+    return head;
+}
+
+void Delete(int pos)
+{
+    struct node*temp1=head;
+    if(pos==1)
+        head=temp1->next;
+    else
+    {
+        int i;
+        for(i=0;i<pos-2;i++)
+            temp1=temp1->next;
+        struct node* temp2=temp1->next;
+        temp1->next=temp2->next;
+        free(temp2);
+    }
+}
+void Print()
+{
+    struct node* temp=head;
+    printf("The list is : ");
+    while(temp!=NULL)
+    {
+        printf("%d\t",temp->data);
+        temp=temp->next;
+    }
+    printf("\n");
+}
