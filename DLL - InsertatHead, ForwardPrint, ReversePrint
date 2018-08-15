@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node* getnewNode(int x);
+struct node* InsertatHead(int x);
+void forwardPrint();
+void reversePrint();
+int main()
+{
+    struct node* head=NULL;
+    InsertatHead(2);
+    InsertatHead(1);
+    InsertatHead(9);
+    InsertatHead(4);
+    InsertatHead(5);
+    InsertatHead(7);
+    forwardPrint();
+    reversePrint();
+}
+struct node
+{
+    int data;
+    struct node* next;
+    struct node* prev;
+};
+struct node* head=NULL;
+struct node* getnewNode(int x)
+{
+    struct node* newNode=(struct node*)malloc(sizeof(struct node*));
+    newNode->data=x;
+    newNode->next=NULL;
+    newNode->prev=NULL;
+    return newNode;
+}
+struct node* InsertatHead(int x)
+{
+    struct node* temp=getnewNode(x);
+    if(head==NULL)
+    {
+        head=temp;
+        return;
+    }
+    head->prev=temp;
+    temp->next=head;
+    head=temp;
+}
+void forwardPrint()
+{
+    struct node* temp=head;
+    printf("Forward: ");
+    while(temp->next!=NULL)
+    {
+        printf("%d\t",temp->data);
+        temp=temp->next;
+    }
+    printf("%d",temp->data);
+    printf("\n");
+}
+void reversePrint()
+{
+    struct node* temp=head;
+    while(temp->next!=NULL)
+    {
+        temp=temp->next;
+    }
+    printf("Reverse: ");
+    while(temp!=NULL)
+    {
+        printf("%d\t",temp->data);
+        temp=temp->prev;
+    }
+    printf("\n");
+}
