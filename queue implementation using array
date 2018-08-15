@@ -63,5 +63,4 @@ int main()
     dequeue();print();
     dequeue();print();
     dequeue();print();
-
 }
