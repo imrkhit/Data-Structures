@@ -22,10 +22,10 @@ void print()
     for(i=0;i<=top;i++)
     {
         print("\n");
-
         printf("%d",a[i]);
     }
 }
+
 int main()
 {
     push(2);print();
