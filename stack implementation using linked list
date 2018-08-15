@@ -23,7 +23,7 @@ void pop()
     top=top->link;
     free(temp);
 }
-print()
+void print()
 {
     struct node* temp=top;
     while(temp!=NULL)
@@ -31,7 +31,7 @@ print()
         printf("%d\t\n",temp->data);
         temp=temp->link;
     }
-
+    printf("\n");
 }
 int main()
 {
